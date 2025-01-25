@@ -10,6 +10,7 @@ import EditProduct, {
   action as editProductAction,
 } from "./views/EditProduct";
 import { action as deleteProductAction } from "./components/ProductDetails";
+import Spinner from "./components/spinner/Spinner";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
         element: <Products />,
         loader: productsLoader,
         action: updateAvailabilityAction,
+        HydrateFallback: () => <Spinner />,
       },
       {
         path: "productos/nuevo",
